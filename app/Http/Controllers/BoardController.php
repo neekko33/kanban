@@ -7,26 +7,16 @@ use Illuminate\Http\Request;
 
 class BoardController extends Controller
 {
-    public function index()
+    public function latest(Request $request)
     {
-        return response()->json(Board::all());
-    }
+        $board = $request
+            ->user()
+            ->boards()
+            ->latest()
+            ->with('tasks')
+            ->first();
 
-    public function show(Request $request, Board $board)
-    {
         return response()->json($board);
-    }
-
-    public function store(Request $request)
-    {
-        $board = Board::create([
-            ...$request->validate([
-                'name' => 'required|string|max:255',
-            ]),
-            'user_id' => $request->user()->id,
-        ]);
-
-        return response()->json($board, 201);
     }
 
     public function update(Request $request, Board $board)

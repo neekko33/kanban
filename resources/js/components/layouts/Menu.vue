@@ -1,12 +1,12 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { useRoute } from 'vue-router';
-import { routes } from '@/routes/routes';
+import routes from '@/router/routes';
 import { Icon } from '@iconify/vue';
 
 const route = useRoute();
 
-const menus = routes.filter(r => r.meta?.isMenu);
+const menus = routes.find(r => r.name === 'Home').children.filter(r => r.meta?.isMenu);
 
 const groupMap = menus.reduce((acc, curr) => {
     const groupName = curr.meta.group || 'Default';
