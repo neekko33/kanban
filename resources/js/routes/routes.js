@@ -1,6 +1,6 @@
 import { createMemoryHistory, createRouter } from "vue-router";
 
-const routes = [
+export const routes = [
     {
         path: '/',
         redirect: '/dashboard'
@@ -12,24 +12,33 @@ const routes = [
     },
     {
         path: '/dashboard',
-        name: 'dashboard',
+        name: 'Dashboard',
+        meta: {
+            isMenu: true,
+            icon: 'heroicons:home',
+        },
         component: () => import('../pages/Dashboard.vue')
     },
     {
         path: '/kanban',
-        name: 'kanban',
+        name: 'Kanban',
+        meta: {
+            isMenu: true,
+            group: 'Task',
+            icon: 'heroicons:view-columns'
+        },
         component: () => import('../pages/Kanban.vue')
     },
     {
         path: '/history',
-        name: 'history',
+        name: 'History',
+        meta: {
+            isMenu: true,
+            group: 'Task',
+            icon: 'heroicons:clock'
+        },
         component: () => import('../pages/HistoryTasks.vue')
     },
-    // {
-    //     path: '/settings',
-    //     name: 'settings',
-    //     component: () => import('../pages/Settings.vue')
-    // }
 ];
 
 const router = createRouter({
