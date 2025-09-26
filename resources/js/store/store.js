@@ -16,6 +16,11 @@ export const useAuthStore = defineStore('auth', () => {
         user.value = null;
     }
 
-    return { user, login, logout };
+    const getUser = async () => {
+        const { data } = await axios.get('/me');
+        user.value = data.user;
+    }
+
+    return { user, login, logout, getUser };
 })
 

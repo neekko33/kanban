@@ -22,7 +22,7 @@ const groupMap = menus.reduce((acc, curr) => {
 
 <template>
     <div class="border-r h-full w-full relative border-gray-200">
-        <div class="border-b border-gray-200 flex justify-between items-center px-4 py-4">
+        <div class="border-b border-gray-200 h-16 flex justify-between items-center px-4 py-4">
             <span class="font-bold text-2xl text-sky-500">Kanban</span>
             <Icon icon="heroicons:bars-4" class="size-6 inline-block cursor-pointer" />
         </div>
