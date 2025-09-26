@@ -27,7 +27,7 @@ export const routes = [
             group: 'Task',
             icon: 'heroicons:view-columns'
         },
-        component: () => import('../pages/Kanban.vue')
+        component: () => import('../pages/task/Kanban.vue')
     },
     {
         path: '/history',
@@ -37,7 +37,37 @@ export const routes = [
             group: 'Task',
             icon: 'heroicons:clock'
         },
-        component: () => import('../pages/HistoryTasks.vue')
+        component: () => import('../pages/task/History.vue')
+    },
+    {
+        path: '/post',
+        name: 'Post',
+        meta: {
+            isMenu: true,
+            group: 'Blog',
+            icon: 'heroicons:book-open'
+        },
+        component: () => import('../pages/blog/Post.vue')
+    },
+    {
+        path: '/category',
+        name: 'Category',
+        meta: {
+            isMenu: true,
+            group: 'Blog',
+            icon: 'heroicons:inbox-stack'
+        },
+        component: () => import('../pages/blog/Category.vue')
+    },
+    {
+        path: '/tag',
+        name: 'Tag',
+        meta: {
+            isMenu: true,
+            group: 'Blog',
+            icon: 'heroicons:tag'
+        },
+        component: () => import('../pages/blog/Tag.vue')
     },
 ];
 

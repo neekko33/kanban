@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from "vue-router";
 import { useRoute } from 'vue-router';
-import { routes } from '../../routes/routes';
+import { routes } from '@/routes/routes';
 import { Icon } from '@iconify/vue';
 
 const route = useRoute();
@@ -22,8 +22,9 @@ const groupMap = menus.reduce((acc, curr) => {
 
 <template>
     <div class="border-r h-full w-full relative border-gray-200">
-        <div class="text-2xl font-bold py-4 px-4 text-sky-500 text-center border-b border-gray-200">
-            Kanban Admin
+        <div class="border-b border-gray-200 flex justify-between items-center px-4 py-4">
+            <span class="font-bold text-2xl text-sky-500">Kanban</span>
+            <Icon icon="heroicons:bars-4" class="size-6 inline-block cursor-pointer" />
         </div>
         <div class="pt-2">
             <ul class="menu menu-lg w-full">
