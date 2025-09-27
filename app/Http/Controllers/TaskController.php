@@ -8,29 +8,15 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    protected $fillable = [
-        'title',
-        'description',
-        'due_date',
-        'priority',
-        'status',
-        'board_id',
-    ];
-
-    public function index(Board $board)
-    {
-        return response()->json($board->tasks);
-    }
-
     public function show(Board $board, Task $task)
     {
-        return response()->json($board->tasks->find($task->id));
+        return response()->json($task);
     }
 
     public function store(TaskRequest $request, Board $board)
     {
         $validated = $request->validated();
-        $task = $board->tasks->create($validated);
+        $task = $board->tasks()->create($validated);
 
         return response()->json($task, 201);
     }

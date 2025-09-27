@@ -14,6 +14,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/boards/latest', [BoardController::class, 'latest']);
     Route::put('/boards/{board}', [BoardController::class, 'update']);
 
+    Route::get('/{board}/tasks/{task}', [TaskController::class, 'show']);
     Route::post('/{board}/tasks', [TaskController::class, 'store']);
     Route::put('/{board}/tasks/{task}', [TaskController::class, 'update']);
 });

@@ -10,6 +10,14 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'due_date',
+        'priority',
+        'status',
+    ];
+
     public function board(): BelongsTo
     {
         return $this->belongsTo(Board::class);

@@ -11,7 +11,7 @@ class TaskRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,8 @@ class TaskRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'due_date' => 'nullable|date',
-            'priority' => 'nullable|integer|min:1|max:3',
-            'status' => 'nullable|string',
+            'priority' => 'required|integer|min:1|max:3',
+            'status' => 'required|string',
         ];
     }
 }
