@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Board;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,14 +12,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create("tasks", function (Blueprint $table) {
+        Schema::create("posts", function (Blueprint $table) {
             $table->id();
             $table->string("title");
             $table->text("description")->nullable();
-            $table->string("status")->default("todo");
-            $table->smallInteger("priority")->default(3); // 1 (high) to 5 (low)
-            $table->date("due_date")->nullable();
-            $table->foreignIdFor(Board::class)->constrained();
+            $table->text("content")->nullable();
+            $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists("tasks");
+        Schema::dropIfExists("posts");
     }
 };
