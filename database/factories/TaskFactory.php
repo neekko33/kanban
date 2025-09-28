@@ -17,11 +17,17 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(3),
-            'description' => $this->faker->paragraph(2),
-            'status' => $this->faker->randomElement(['todo', 'in_progress', 'done']),
-            'priority' => $this->faker->numberBetween(1, 5),
-            'due_date' => $this->faker->optional()->dateTimeBetween('now', '+1 year'),
+            "title" => $this->faker->sentence(3),
+            "description" => $this->faker->paragraph(2),
+            "status" => $this->faker->randomElement([
+                "todo",
+                "in_progress",
+                "done",
+            ]),
+            "priority" => $this->faker->numberBetween(1, 3),
+            "due_date" => $this->faker
+                ->optional()
+                ->dateTimeBetween("now", "+1 year"),
         ];
     }
 }
