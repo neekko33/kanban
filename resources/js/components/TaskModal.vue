@@ -154,16 +154,24 @@ defineExpose({
                     ></textarea>
                     <div class="label">Optional</div>
                 </fieldset>
-                <template v-if="type === 'add'">
-                    <button class="btn mt-2" @click.prevent="handleAddTask">
-                        Create Task
-                    </button>
-                </template>
-                <template v-else>
-                    <button class="btn mt-2" @click.prevent="handleSaveTask">
-                        Save Task
-                    </button>
-                </template>
+                <div class="flex justify-end">
+                    <template v-if="type === 'add'">
+                        <button
+                            class="btn mt-2 btn-primary"
+                            @click.prevent="handleAddTask"
+                        >
+                            Create Task
+                        </button>
+                    </template>
+                    <template v-else>
+                        <button
+                            class="btn mt-2 btn-primary"
+                            @click.prevent="handleSaveTask"
+                        >
+                            Save Task
+                        </button>
+                    </template>
+                </div>
             </form>
         </div>
     </dialog>

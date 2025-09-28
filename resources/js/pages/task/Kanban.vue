@@ -140,7 +140,9 @@ const handleEditBoard = async () => {
                     />
                 </div>
             </div>
-            <button class="btn" @click="showAddTaskModal">Add Task</button>
+            <button class="btn btn-primary" @click="showAddTaskModal">
+                Add Task
+            </button>
         </div>
         <div
             ref="scrollContainer"
