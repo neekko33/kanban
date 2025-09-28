@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 Route::post("/login", [AuthController::class, "login"]);
 
@@ -18,4 +19,6 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::get("/{board}/tasks/{task}", [TaskController::class, "show"]);
     Route::post("/{board}/tasks", [TaskController::class, "store"]);
     Route::put("/{board}/tasks/{task}", [TaskController::class, "update"]);
+
+    Route::get("/posts", [PostController::class, "index"]);
 });

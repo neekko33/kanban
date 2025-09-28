@@ -93,7 +93,7 @@ const handleCreateBoard = async () => {
             const { data } = await addBoard();
             await fetchData();
             setAlert("success", "New board created successfully.");
-        },
+        }
     );
 };
 
