@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
         $user = User::factory()->create([
             "name" => "neekko33",
             "email" => "neekko33@gmail.com",
+            "bio" => "Trying to do better",
+            "avatar_url" =>
+                "https://avatars.githubusercontent.com/u/45459176?v=4",
         ]);
 
         $user->boards()->create([
@@ -33,14 +36,13 @@ class DatabaseSeeder extends Seeder
             "user_id" => $user->id,
         ]);
 
-        $tags = Tag::factory(5)->create([
+        $tags = Tag::factory(10)->create([
             "user_id" => $user->id,
         ]);
 
         Post::factory(20)
             ->create([
                 "user_id" => $user->id,
-                "category_id" => $categories->random()->id,
             ])
             ->each(function ($post) use ($tags) {
                 $post
