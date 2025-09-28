@@ -42,6 +42,12 @@ const onScroll = () => {
 
 const fetchData = async () => {
     const { data } = await getLatestBoard();
+    if (!data.id) {
+        boardId.value = null;
+        boardTitle.value = "No Boards";
+        tasks.value = [];
+        return;
+    }
     boardId.value = data.id;
     boardTitle.value = data.name;
     tasks.value = data.tasks;
@@ -74,6 +80,10 @@ const groupedTasks = computed(() => {
 });
 
 const showAddTaskModal = () => {
+    if (!boardId.value) {
+        setAlert("error", "Please create a board first.");
+        return;
+    }
     modalType.value = "add";
     addTaskModal.value.showModal();
 };
