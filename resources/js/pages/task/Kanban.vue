@@ -1,7 +1,7 @@
 <script setup>
 import { getLatestBoard, addBoard, updateBoard } from "@/apis/task";
 import TaskCard from "@/components/TaskCard.vue";
-import { ref, computed, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted, inject } from "vue";
 import TaskModal from "@/components/TaskModal.vue";
 import draggable from "vuedraggable";
 import { Icon } from "@iconify/vue";
@@ -83,9 +83,18 @@ const showEditTaskModal = (id) => {
     addTaskModal.value.showModal(id);
 };
 
+const setConfirm = inject("setConfirm");
+const setAlert = inject("setAlert");
 const handleCreateBoard = async () => {
-    const { data } = await addBoard();
-    await fetchData();
+    setConfirm(
+        "Create New Board",
+        "Are you sure you want to create a new board? This will discard any unsaved changes.",
+        async () => {
+            const { data } = await addBoard();
+            await fetchData();
+            setAlert("success", "New board created successfully.");
+        },
+    );
 };
 
 const isBoardTitleLoading = ref(false);
