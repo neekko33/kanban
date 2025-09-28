@@ -21,6 +21,12 @@ const totalPages = computed(() => Math.ceil(props.total / props.perPage));
 </script>
 <template>
     <div class="join" v-if="totalPages > 1">
+        <button
+            class="join-item btn"
+            @click="currentPage !== 1 && $emit('onPageChange', currentPage - 1)"
+        >
+            «
+        </button>
         <template v-for="page in totalPages" :key="page">
             <button
                 class="join-item btn"
@@ -32,5 +38,11 @@ const totalPages = computed(() => Math.ceil(props.total / props.perPage));
                 {{ page }}
             </button>
         </template>
+        <button
+            class="join-item btn"
+            @click="currentPage !== totalPages && $emit('onPageChange', currentPage + 1)"
+        >
+            »
+        </button>
     </div>
 </template>

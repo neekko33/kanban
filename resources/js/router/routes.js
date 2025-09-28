@@ -51,7 +51,25 @@ const routes = [
                     group: "Blog",
                     icon: "heroicons:book-open",
                 },
+                redirect: { name: "PostList" },
                 component: () => import("../pages/blog/Post.vue"),
+                children: [
+                    {
+                        path: "",
+                        name: "PostList",
+                        component: () => import("../pages/blog/PostList.vue"),
+                    },
+                    {
+                        path: "create",
+                        name: "PostCreate",
+                        component: () => import("../pages/blog/PostEdit.vue"),
+                    },
+                    {
+                        path: "edit/:id",
+                        name: "PostEdit",
+                        component: () => import("../pages/blog/PostEdit.vue"),
+                    },
+                ],
             },
             {
                 path: "/category",

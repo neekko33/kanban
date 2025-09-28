@@ -6,6 +6,8 @@ use App\Http\Controllers\BoardController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
 
 Route::post("/login", [AuthController::class, "login"]);
 
@@ -21,4 +23,8 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::put("/{board}/tasks/{task}", [TaskController::class, "update"]);
 
     Route::get("/posts", [PostController::class, "index"]);
+
+    Route::get("/categories", [CategoryController::class, "index"]);
+
+    Route::get("/tags", [TagController::class, "index"]);
 });

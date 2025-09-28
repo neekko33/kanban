@@ -5,3 +5,11 @@ export const getPosts = (page) => {
         params: { page },
     });
 };
+
+export const getTags = () => {
+    return axios.get("/tags");
+}
+
+export const getCategories = () => {
+    return axios.get("/categories");
+}

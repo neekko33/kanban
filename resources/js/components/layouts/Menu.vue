@@ -32,7 +32,7 @@ const groupMap = menus.reduce((acc, curr) => {
                     <template v-if="group === 'Default'">
                         <li class="menu-item" v-for="item in groupMap[group]" :key="item.name">
                             <RouterLink :to="{ name: item.name }" class="flex items-center gap-2"
-                                :class="{ 'menu-active': route.name === item.name }">
+                                :class="{ 'menu-active': route.name.startsWith(item.name) }">
                                 <Icon :icon="item.meta.icon" class="size-5" />
                                 {{ item.name }}
                             </RouterLink>
@@ -44,7 +44,7 @@ const groupMap = menus.reduce((acc, curr) => {
                         </div>
                         <li class="menu-item" v-for="item in groupMap[group]" :key="item.name">
                             <RouterLink :to="{ name: item.name }" class="flex items-center gap-2"
-                                :class="{ 'menu-active': route.name === item.name }">
+                                :class="{ 'menu-active': route.name.startsWith(item.name) }">
                                 <Icon :icon="item.meta.icon" class="size-5" />
                                 {{ item.name }}
                             </RouterLink>
