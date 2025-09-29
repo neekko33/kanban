@@ -25,4 +25,7 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::apiResource("/posts", PostController::class);
     Route::apiResource("/categories", CategoryController::class)->only(["index","store", "update", "destroy"]);
     Route::apiResource("/tags", TagController::class)->only(["index","store", "update", "destroy"]);
+
+    Route::put("/settings/profile", [AuthController::class, "updateProfile"]);
+    Route::put("/settings/password", [AuthController::class, "updatePassword"]); 
 });

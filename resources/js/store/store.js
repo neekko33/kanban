@@ -1,9 +1,11 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import axios from '@/apis'
+import { useRouter } from 'vue-router';
 
 export const useAuthStore = defineStore('auth', () => {
     const user = ref(null);
+    const router = useRouter();
 
     const login = async (userInfo) => {
         // initialize CSRF
@@ -14,6 +16,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     const logout = () => {
         user.value = null;
+        router.push({ name: "Login" });
     }
 
     const getUser = async () => {

@@ -91,6 +91,11 @@ const routes = [
                 },
                 component: () => import("../pages/blog/Tag.vue"),
             },
+            {
+                path: "/settings",
+                name: "Settings",
+                component: () => import("../pages/Settings.vue"),
+            }
         ],
     },
 ];

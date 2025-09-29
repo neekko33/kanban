@@ -26,8 +26,8 @@ const fetchData = async () => {
         getTags(1, 100),
         getCategories(1, 100),
     ]);
-    tags.value = tagsResponse.data;
-    categories.value = categoriesResponse.data;
+    tags.value = tagsResponse.data.data;
+    categories.value = categoriesResponse.data.data;
     if (isEdit) {
         const { data } = await getPost(route.params.id);
         post.value = {
