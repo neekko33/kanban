@@ -12,7 +12,7 @@ const props = defineProps({
     },
     perPage: {
         type: Number,
-        default: 12,
+        default: 10,
     },
 });
 

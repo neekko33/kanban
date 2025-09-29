@@ -22,9 +22,7 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::post("/{board}/tasks", [TaskController::class, "store"]);
     Route::put("/{board}/tasks/{task}", [TaskController::class, "update"]);
 
-    Route::get("/posts", [PostController::class, "index"]);
-
-    Route::get("/categories", [CategoryController::class, "index"]);
-
-    Route::get("/tags", [TagController::class, "index"]);
+    Route::apiResource("/posts", PostController::class);
+    Route::apiResource("/categories", CategoryController::class)->only(["index","store", "update", "destroy"]);
+    Route::apiResource("/tags", TagController::class)->only(["index","store", "update", "destroy"]);
 });
