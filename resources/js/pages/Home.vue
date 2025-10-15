@@ -30,9 +30,7 @@ provide("setConfirm", setConfirm);
 <template>
     <Confirm ref="confirmModal" :confirm="confirm" />
     <div class="flex h-screen w-screen">
-        <div class="w-[275px]">
-            <Menu />
-        </div>
+        <Menu />
         <div class="flex-1 flex flex-col">
             <Header />
             <RouterView />

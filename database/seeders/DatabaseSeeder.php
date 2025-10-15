@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
             "name" => "Project Alpha",
         ]);
 
-        Task::factory(10)->create([
-            "board_id" => $user->boards()->first()->id,
-        ]);
+        // Task::factory(10)->create([
+        //     "board_id" => $user->boards()->first()->id,
+        // ]);
     }
 }
