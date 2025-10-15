@@ -5,9 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\TagController;
 
 Route::post("/login", [AuthController::class, "login"]);
 
@@ -22,10 +19,6 @@ Route::middleware("auth:sanctum")->group(function () {
     Route::post("/{board}/tasks", [TaskController::class, "store"]);
     Route::put("/{board}/tasks/{task}", [TaskController::class, "update"]);
 
-    Route::apiResource("/posts", PostController::class);
-    Route::apiResource("/categories", CategoryController::class)->only(["index","store", "update", "destroy"]);
-    Route::apiResource("/tags", TagController::class)->only(["index","store", "update", "destroy"]);
-
     Route::put("/settings/profile", [AuthController::class, "updateProfile"]);
-    Route::put("/settings/password", [AuthController::class, "updatePassword"]); 
+    Route::put("/settings/password", [AuthController::class, "updatePassword"]);
 });
